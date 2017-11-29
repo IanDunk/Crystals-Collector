@@ -173,21 +173,21 @@
         $(document).ready(function () {
 
             // Play game when any gem clicked
-            $("button").on("click", function () { // parseInt!!
+            $("button").on("click", function () {
                 
                 // If game hasn't been finished yet
-                if(parseInt(currentNumber) < parseInt(targetNumber)) {
-                    currentNumber = parseInt(currentNumber) + parseInt(this.value);
+                if(currentNumber < targetNumber) {
+                    currentNumber += parseInt(this.value);
                     
-                    if(parseInt(currentNumber) > parseInt(targetNumber)) {
+                    if(currentNumber > targetNumber) {
                         loses++;
-                    } else if(parseInt(currentNumber) === parseInt(targetNumber)) { // maybe just use ==?
+                    } else if(currentNumber === targetNumber) {
                         wins++;
                         // Play airhorn
                         document.getElementById("win").play();
                     }
+                // If game has finished, reset on next gem click
                 } else {
-                    // Reset game if button clicked and game has previously finished
                     resetGame();
                 }
                 
