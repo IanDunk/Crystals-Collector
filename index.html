@@ -19,9 +19,15 @@
 
     <!-- Pirata font -->
     <link href="https://fonts.googleapis.com/css?family=Pirata+One" rel="stylesheet">
+
 </head>
 
 <body>
+
+    <!-- Sound Files -->
+    <audio controls>
+        <audio id="win" src="http://www.instantrapairhorn.com/wp-content/uploads/2014/03/instantrapairhorn.mp3"></audio>
+    </audio>
 
     <!-- Container -->
     <div class="container">
@@ -39,7 +45,7 @@
             <div class="col-lg-6">
 
                 <!-- Target Number -->
-                <div class="panel panel-default">
+                <div class="panel">
                     <div class="panel-heading">
                         <h3 class="panel-title">Target Number:</h3>
                     </div>
@@ -51,7 +57,7 @@
                 </div>
 
                 <!-- Gem Buttons -->
-                <div class="panel panel-default">
+                <div class="panel">
                     <div class="panel-heading">
                         <h3 class="panel-title">Pick a gem</h3>
                     </div>
@@ -64,13 +70,13 @@
                 </div>
 
                 <!-- Current Number -->
-                <div class="panel panel-default">
+                <div class="panel">
                     <div class="panel-heading">
                         <h3 class="panel-title">Current Number:</h3>
                     </div>
                     <div class="panel-body">
                         <div class="text-center">
-                            <p id="current-number">null</p>
+                            <p id="current-number">0</p>
                         </div>
                     </div>
                 </div>
@@ -82,7 +88,7 @@
             <div class="col-lg-6">
 
                 <!-- Game Instructions -->
-                <div class="panel panel-default">
+                <div class="panel">
                     <div class="panel-heading">
                         <h3 class="panel-title">Instructions:</h3>
                     </div>
@@ -96,8 +102,8 @@
                     </div>
                 </div>
 
-                <!-- Wins -->
-                <div class="panel panel-default">
+                <!-- Wins (green) -->
+                <div class="panel panel-success">
                     <div class="panel-heading">
                         <h3 class="panel-title">Current Wins:</h3>
                     </div>
@@ -108,8 +114,8 @@
                     </div>
                 </div>
 
-                <!-- Loses -->
-                <div class="panel panel-default">
+                <!-- Loses (red) -->
+                <div class="panel panel-danger">
                     <div class="panel-heading">
                         <h3 class="panel-title">Current Loses:</h3>
                     </div>
@@ -159,21 +165,17 @@
             $("#target-number").text(targetNumber);       
         }
 
-
-
         // Initializing Game
         resetGame();
-
-        // DOES THIS GO ON TOP OR BOTTOM?
-
 
 
         // JavaScript function that wraps everything
         $(document).ready(function () {
 
-            // Play when any gem clicked
+            // Play game when any gem clicked
             $("button").on("click", function () { // parseInt!!
                 
+                // If game hasn't been finished yet
                 if(parseInt(currentNumber) < parseInt(targetNumber)) {
                     currentNumber = parseInt(currentNumber) + parseInt(this.value);
                     
@@ -181,14 +183,15 @@
                         loses++;
                     } else if(parseInt(currentNumber) === parseInt(targetNumber)) { // maybe just use ==?
                         wins++;
+                        // Play airhorn
+                        document.getElementById("win").play();
                     }
                 } else {
+                    // Reset game if button clicked and game has previously finished
                     resetGame();
                 }
-
-                console.log(this.value); // just temporary
-                // do currentNumber += this.value
                 
+                // Updating html tags to screen
                 $("#current-number").text(currentNumber);
                 $("#current-wins").text(wins);
                 $("#current-loses").text(loses);
@@ -196,14 +199,12 @@
         });
 
 
-
         /*
             Optional: make a function the makes the panels with just a few inputs to shorten bootstrap code
             for things like wins, loses, current number and target number
-            also could add a gem background
+
             also see if parseInts are necessary
             clearfix photo on phone
-            sound effects like for winner and loser, air horn? lol
         */
     </script>
 </body>

@@ -1,11 +1,11 @@
+body {
+    background-image: url("../images/diamond-background.jpeg");
+}
+
 img {
     height: 50px;
     width: 50px;
     margin-top: 5px;
-}
-
-body {
-    background-image: url("../images/diamond-background.jpeg");
 }
 
 .jumbotron {
@@ -13,19 +13,14 @@ body {
     background: rgb(0, 238, 255);
 }
 
+p, .panel-heading {
+    font-family: 'Pirata One', cursive;
+}
+
 .panel-heading {
-    font-family: 'Pirata One', cursive;
-    font-size: 46px;
-    
-    /*
-    background-image: none;
-    background: rgb(0, 238, 255); not working...    
-    color: white;
-    */
+    background: rgb(0, 238, 255);
 }
 
-p {
-    font-family: 'Pirata One', cursive;
+.panel {
+    background: rgb(238, 238, 238);
 }
-
-/* clearfix */
