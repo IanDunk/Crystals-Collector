@@ -32,23 +32,67 @@
             <div class="col-lg-6">
 
                 <!-- Target Number -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Target Number:</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <p id="target-number">0</p>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Gem Buttons -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Pick a gem</h3>
+                    </div>
+                    <div class="panel-body text-center">
+                        <img src="assets/images/green-gem.png" alt="green gem" id="button-1"/>
+                        <img src="assets/images/orange-gem.png" alt="orange gem" id="button-2"/>
+                        <img src="assets/images/purple-gem.png" alt="purple gem" id="button-3"/>
+                        <img src="assets/images/red-gem.png" alt="red gem" id="button-4"/>
+                    </div>
+                </div>
 
                 <!-- Current Number -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Current Number:</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <p id="current-number">0</p>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- End of left panel -->
             </div>
 
-            <!-- Right Panel (description and scoreboard )-->
+            <!-- Right Panel (instructions and scoreboard) -->
             <div class="col-lg-6">
                 
-                <!-- Game Description -->
-                <article class="game-description">
-                    <p></p>
-                </article>
+                <!-- Game Instructions -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Instructions:</h3>
+                    </div>
+                    <div class="panel-body">
+                        <article class="game-description">
+                            <p>Instructions go here</p>
+                        </article>
+                    </div>
+                </div>
 
+            <!-- End of right panel -->
             </div>
 
+        <!-- End of Row -->
         </div>
+
+    <!-- End of Container -->
     </div>
 
 
@@ -59,7 +103,10 @@
 
         // JavaScript function that wraps everything
         $(document).ready(function() {
-
+           
+            $("img").on("click", function() {
+                console.log("you clicked on an image");
+            });
 
         });
     </script>
