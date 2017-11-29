@@ -4,4 +4,28 @@ img {
     margin-top: 5px;
 }
 
+body {
+    background-image: url("../images/diamond-background.jpeg");
+}
+
+.jumbotron {
+    font-family: 'Pirata One', cursive;
+    background: rgb(0, 238, 255);
+}
+
+.panel-heading {
+    font-family: 'Pirata One', cursive;
+    font-size: 46px;
+    
+    /*
+    background-image: none;
+    background: rgb(0, 238, 255); not working...    
+    color: white;
+    */
+}
+
+p {
+    font-family: 'Pirata One', cursive;
+}
+
 /* clearfix */
