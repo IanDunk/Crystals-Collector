@@ -93,6 +93,30 @@
                     </div>
                 </div>
 
+                <!-- Wins -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Current Wins:</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <p id="current-wins">0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Loses -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Current Loses:</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <p id="current-loses">0</p>
+                        </div>
+                    </div>
+                </div>    
+
                 <!-- End of right panel -->
             </div>
 
@@ -141,11 +165,19 @@
         // JavaScript function that wraps everything
         $(document).ready(function () {
 
+            // Play when any gem clicked
             $("img").on("click", function () {
-                console.log(this.value);
+                console.log($(this, "value")); // just temporary
+                // do currentNumber += this.value
+                
+                $("#current-number").text(currentNumber);
             });
 
+            $("#button-1").attr("value", 4); // test
+
             $("#target-number").text(targetNumber);
+
+
 
         });
     </script>
