@@ -53,10 +53,10 @@
                         <h3 class="panel-title">Pick a gem</h3>
                     </div>
                     <div class="panel-body text-center">
-                        <img src="assets/images/green-gem.png" alt="green gem" id="button-1" /> <!-- try to add values to these -->
-                        <img src="assets/images/orange-gem.png" alt="orange gem" id="button-2" />
-                        <img src="assets/images/purple-gem.png" alt="purple gem" id="button-3" />
-                        <img src="assets/images/red-gem.png" alt="red gem" id="button-4" />
+                        <button id="button-1" value="null"><img src="assets/images/green-gem.png" alt="green gem"</button> <!-- try to add values to these -->
+                        <button id="button-2" value="null"><img src="assets/images/orange-gem.png" alt="orange gem"</button>
+                        <button id="button-3" value="null"><img src="assets/images/purple-gem.png" alt="purple gem"</button>
+                        <button id="button-4" value="null"><img src="assets/images/red-gem.png" alt="red gem"</button>
                     </div>
                 </div>
 
@@ -150,6 +150,7 @@
             // Setting random values to gems from 1 through 12
             for (var i = 0; i < 4; i++) {
                 gemValues[i] = Math.floor(Math.random() * 12) + 1;
+                $("#button-" + (i + 1)).attr("value", gemValues[i]); // test
             }
         }
 
@@ -166,8 +167,9 @@
         $(document).ready(function () {
 
             // Play when any gem clicked
-            $("img").on("click", function () {
-                console.log($(this, "value")); // just temporary
+            $("button").on("click", function () {
+                //if()
+                console.log(this.value); // just temporary
                 // do currentNumber += this.value
                 
                 $("#current-number").text(currentNumber);
