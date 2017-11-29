@@ -136,7 +136,7 @@
 
         // Scoreboard
         var wins = 0;
-        var losses = 0;
+        var loses = 0;
 
 
         // Reset
@@ -150,8 +150,10 @@
             // Setting random values to gems from 1 through 12
             for (var i = 0; i < 4; i++) {
                 gemValues[i] = Math.floor(Math.random() * 12) + 1;
-                $("#button-" + (i + 1)).attr("value", gemValues[i]); // test
+                $("#button-" + (i + 1)).attr("value", gemValues[i]);
             }
+
+            $("#target-number").text(targetNumber);       
         }
 
 
@@ -167,20 +169,27 @@
         $(document).ready(function () {
 
             // Play when any gem clicked
-            $("button").on("click", function () {
-                //if()
+            $("button").on("click", function () { // parseInt!!
+                
+                if(parseInt(currentNumber) < parseInt(targetNumber)) {
+                    currentNumber = parseInt(currentNumber) + parseInt(this.value);
+                    
+                    if(parseInt(currentNumber) > parseInt(targetNumber)) {
+                        loses++;
+                    } else if(parseInt(currentNumber) === parseInt(targetNumber)) { // maybe just use ==?
+                        wins++;
+                    }
+                } else {
+                    resetGame();
+                }
+
                 console.log(this.value); // just temporary
                 // do currentNumber += this.value
                 
                 $("#current-number").text(currentNumber);
+                $("#current-wins").text(wins);
+                $("#current-loses").text(loses);
             });
-
-            $("#button-1").attr("value", 4); // test
-
-            $("#target-number").text(targetNumber);
-
-
-
         });
     </script>
 </body>
