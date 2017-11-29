@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    
+
     <!-- Bootstrap File -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
@@ -16,14 +17,17 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
+
 <body>
 
     <!-- Container -->
     <div class="container">
-        
+
         <!-- Jumbotron -->
         <div class="jumbotron">
-            <h1 class="text-center"><strong>Crystals Collecter!</strong></h1>
+            <h1 class="text-center">
+                <strong>Crystals Collecter!</strong>
+            </h1>
         </div>
 
         <div class="row">
@@ -38,7 +42,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="text-center">
-                            <p id="target-number">0</p>
+                            <p id="target-number">null</p>
                         </div>
                     </div>
                 </div>
@@ -49,10 +53,10 @@
                         <h3 class="panel-title">Pick a gem</h3>
                     </div>
                     <div class="panel-body text-center">
-                        <img src="assets/images/green-gem.png" alt="green gem" id="button-1"/>
-                        <img src="assets/images/orange-gem.png" alt="orange gem" id="button-2"/>
-                        <img src="assets/images/purple-gem.png" alt="purple gem" id="button-3"/>
-                        <img src="assets/images/red-gem.png" alt="red gem" id="button-4"/>
+                        <img src="assets/images/green-gem.png" alt="green gem" id="button-1" /> <!-- try to add values to these -->
+                        <img src="assets/images/orange-gem.png" alt="orange gem" id="button-2" />
+                        <img src="assets/images/purple-gem.png" alt="purple gem" id="button-3" />
+                        <img src="assets/images/red-gem.png" alt="red gem" id="button-4" />
                     </div>
                 </div>
 
@@ -63,17 +67,17 @@
                     </div>
                     <div class="panel-body">
                         <div class="text-center">
-                            <p id="current-number">0</p>
+                            <p id="current-number">null</p>
                         </div>
                     </div>
                 </div>
 
-            <!-- End of left panel -->
+                <!-- End of left panel -->
             </div>
 
             <!-- Right Panel (instructions and scoreboard) -->
             <div class="col-lg-6">
-                
+
                 <!-- Game Instructions -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -81,34 +85,70 @@
                     </div>
                     <div class="panel-body">
                         <article class="game-description">
-                            <p>Instructions go here</p>
+                            <p>The goal of this game is to make your number equal the target number. The target number is a
+                                random number from 19 through 120. Each gem will have a random value from 1 through 12. Each
+                                gem you click on adds its value to your number. Good luck, and don't go above that target
+                                number!</p>
                         </article>
                     </div>
                 </div>
 
-            <!-- End of right panel -->
+                <!-- End of right panel -->
             </div>
 
-        <!-- End of Row -->
+            <!-- End of Row -->
         </div>
 
-    <!-- End of Container -->
+        <!-- End of Container -->
     </div>
 
 
     <script>
-    
+
+        // Number Values
+        var currentNumber = 0;
+        var targetNumber = 0;
+        var gemValues = [];
+
+        // Scoreboard
+        var wins = 0;
+        var losses = 0;
+
+
+        // Reset
+        function resetGame() {
+            // Setting current number to 0
+            currentNumber = 0;
+            
+            // Setting random value to 'targetNumber' from 19 through 120
+            targetNumber = Math.floor(Math.random() * 102) + 19
+            
+            // Setting random values to gems from 1 through 12
+            for (var i = 0; i < 4; i++) {
+                gemValues[i] = Math.floor(Math.random() * 12) + 1;
+            }
+        }
+
+
+
+        // Initializing Game
+        resetGame();
+
+        // DOES THIS GO ON TOP OR BOTTOM?
 
 
 
         // JavaScript function that wraps everything
-        $(document).ready(function() {
-           
-            $("img").on("click", function() {
-                console.log("you clicked on an image");
+        $(document).ready(function () {
+
+            $("img").on("click", function () {
+                console.log(this.value);
             });
+
+            $("#target-number").text(targetNumber);
 
         });
     </script>
 </body>
+
 </html>
