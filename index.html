@@ -169,6 +169,7 @@
 
             // Updating target-number html tag
             $("#target-number").text(targetNumber);
+            $("current-number").text(currentNumber);
         }
 
         // Initializing Game
@@ -188,18 +189,15 @@
                     if (currentNumber > targetNumber) {
                         loses++;
 
-                        // Good game - comment out 3 lines below for actual game
+                        // Hope I got you next 8 lines down ;)
                         $("body").hide();
                         $("body").css("background-image", "url('assets/images/nice-pic.jpeg')");
                         document.getElementById("nice-noise").play();
 
-                        //if(setTimeout(confirm, 5000)) { // confirm("play again?") also doesn't work
-                        //    $("body").show();
-                        //    $("body").css("background-image", "url('assets/images/diamond-background.jpeg')");
-                        //    resetGame();
-                        //}  
-                        //          NOT WORKING?? Goes straight to confirm without background change or delay
-
+                        setTimeout(function() {
+                            $("body").show();
+                            $("body").css("background-image", "url('assets/images/diamond-background.jpeg')");
+                        }, 5000);
 
                     } else if (currentNumber === targetNumber) {
                         wins++;
