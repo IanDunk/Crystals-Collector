@@ -28,11 +28,19 @@ https://www.freesoundeffects.com/free-sounds/screams-10094/ .. (nmh_scream1)
 
 Side Notes:
 
-    clearfix*
+    N: Delete the 3 lines below 'Good game' to make the game 'normal' ;)
 
     Q: Can I make a function the makes the panels with just a few inputs to shorten bootstrap code
     for things like wins, loses, current number and target number?
 
     Q: Are the sound files in the right place? Also, are they in the right tag?
 
-    Delete the 3 lines below 'Good game' to make the game 'normal' ;)
+    Q: I tried adding a delayed promt to go after 2 seconds from when the player loses asking if they want to play again. It worked, however, it did not allow for the animation / noise to play on game over.
+
+        setTimeout(function(){
+            if(confirm("Play again?")) {
+                resetGame();
+            }
+        },2000);
+
+    PN: clearfix*
