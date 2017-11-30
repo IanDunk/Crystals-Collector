@@ -62,7 +62,7 @@
                         <h3 class="panel-title">Pick a gem</h3>
                     </div>
                     <div class="panel-body text-center">
-                        <button id="button-1" value="null"><img src="assets/images/green-gem.png" alt="green gem"</button> <!-- try to add values to these -->
+                        <button id="button-1" value="null"><img src="assets/images/green-gem.png" alt="green gem"</button>
                         <button id="button-2" value="null"><img src="assets/images/orange-gem.png" alt="orange gem"</button>
                         <button id="button-3" value="null"><img src="assets/images/purple-gem.png" alt="purple gem"</button>
                         <button id="button-4" value="null"><img src="assets/images/red-gem.png" alt="red gem"</button>
@@ -162,6 +162,7 @@
                 $("#button-" + (i + 1)).attr("value", gemValues[i]);
             }
 
+            // Updating target-number html tag
             $("#target-number").text(targetNumber);       
         }
 
@@ -203,8 +204,10 @@
             Optional: make a function the makes the panels with just a few inputs to shorten bootstrap code
             for things like wins, loses, current number and target number
 
-            also see if parseInts are necessary
             clearfix photo on phone
+
+
+            Sound files in the right place? in the right tag?
         */
     </script>
 </body>

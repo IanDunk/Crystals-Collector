@@ -1,23 +1,26 @@
+/* Diamond background */
 body {
     background-image: url("../images/diamond-background.jpeg");
 }
 
+audio {
+    opacity: 0;
+}
+
+/* Img sizing */
 img {
     height: 50px;
     width: 50px;
     margin-top: 5px;
 }
 
-.jumbotron {
-    font-family: 'Pirata One', cursive;
-    background: rgb(0, 238, 255);
-}
-
-p, .panel-heading {
+/* Font families */
+p, .panel-heading, .jumbotron {
     font-family: 'Pirata One', cursive;
 }
 
-.panel-heading {
+/* Background Colors */
+.jumbotron, .panel-heading {
     background: rgb(0, 238, 255);
 }
 
