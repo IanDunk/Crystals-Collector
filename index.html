@@ -27,6 +27,7 @@
     <!-- Sound Files -->
     <audio controls>
         <audio id="win" src="http://www.instantrapairhorn.com/wp-content/uploads/2014/03/instantrapairhorn.mp3"></audio>
+        <audio id="nice-noise" src="assets/sound/nice-noise.wav"></audio>
     </audio>
 
     <!-- Container -->
@@ -35,7 +36,7 @@
         <!-- Jumbotron -->
         <div class="jumbotron">
             <h1 class="text-center">
-                <strong>Crystals Collecter!</strong>
+                <strong>Crystals Collector!</strong>
             </h1>
         </div>
 
@@ -62,10 +63,14 @@
                         <h3 class="panel-title">Pick a gem</h3>
                     </div>
                     <div class="panel-body text-center">
-                        <button id="button-1" value="null"><img src="assets/images/green-gem.png" alt="green gem"</button>
-                        <button id="button-2" value="null"><img src="assets/images/orange-gem.png" alt="orange gem"</button>
-                        <button id="button-3" value="null"><img src="assets/images/purple-gem.png" alt="purple gem"</button>
-                        <button id="button-4" value="null"><img src="assets/images/red-gem.png" alt="red gem"</button>
+                        <button id="button-1" value="null">
+                            <img src="assets/images/green-gem.png" alt="green gem" </button>
+                            <button id="button-2" value="null">
+                                <img src="assets/images/orange-gem.png" alt="orange gem" </button>
+                                <button id="button-3" value="null">
+                                    <img src="assets/images/purple-gem.png" alt="purple gem" </button>
+                                    <button id="button-4" value="null">
+                                        <img src="assets/images/red-gem.png" alt="red gem" </button>
                     </div>
                 </div>
 
@@ -124,7 +129,7 @@
                             <p id="current-loses">0</p>
                         </div>
                     </div>
-                </div>    
+                </div>
 
                 <!-- End of right panel -->
             </div>
@@ -152,10 +157,10 @@
         function resetGame() {
             // Setting current number to 0
             currentNumber = 0;
-            
+
             // Setting random value to 'targetNumber' from 19 through 120
             targetNumber = Math.floor(Math.random() * 102) + 19
-            
+
             // Setting random values to gems from 1 through 12
             for (var i = 0; i < 4; i++) {
                 gemValues[i] = Math.floor(Math.random() * 12) + 1;
@@ -163,7 +168,7 @@
             }
 
             // Updating target-number html tag
-            $("#target-number").text(targetNumber);       
+            $("#target-number").text(targetNumber);
         }
 
         // Initializing Game
@@ -175,40 +180,37 @@
 
             // Play game when any gem clicked
             $("button").on("click", function () {
-                
+
                 // If game hasn't been finished yet
-                if(currentNumber < targetNumber) {
+                if (currentNumber < targetNumber) {
                     currentNumber += parseInt(this.value);
-                    
-                    if(currentNumber > targetNumber) {
+
+                    if (currentNumber > targetNumber) {
                         loses++;
-                    } else if(currentNumber === targetNumber) {
+
+                        // Good game - comment out 3 lines below for actual game
+                        $("body").hide();
+                        $("body").css("background-image", "url('assets/images/nice-pic.jpeg')");
+                        document.getElementById("nice-noise").play();
+
+
+                    } else if (currentNumber === targetNumber) {
                         wins++;
                         // Play airhorn
                         document.getElementById("win").play();
                     }
-                // If game has finished, reset on next gem click
+                    // If game has finished, reset on next gem click
                 } else {
                     resetGame();
                 }
-                
+
                 // Updating html tags to screen
                 $("#current-number").text(currentNumber);
                 $("#current-wins").text(wins);
                 $("#current-loses").text(loses);
             });
         });
-
-
-        /*
-            Optional: make a function the makes the panels with just a few inputs to shorten bootstrap code
-            for things like wins, loses, current number and target number
-
-            clearfix photo on phone
-
-
-            Sound files in the right place? in the right tag?
-        */
+        
     </script>
 </body>
 

@@ -3,6 +3,7 @@ body {
     background-image: url("../images/diamond-background.jpeg");
 }
 
+/* Hides audio box in upper lefthand of screen */
 audio {
     opacity: 0;
 }
