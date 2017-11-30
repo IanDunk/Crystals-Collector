@@ -193,6 +193,13 @@
                         $("body").css("background-image", "url('assets/images/nice-pic.jpeg')");
                         document.getElementById("nice-noise").play();
 
+                        //if(setTimeout(confirm, 5000)) { // confirm("play again?") also doesn't work
+                        //    $("body").show();
+                        //    $("body").css("background-image", "url('assets/images/diamond-background.jpeg')");
+                        //    resetGame();
+                        //}  
+                        //          NOT WORKING?? Goes straight to confirm without background change or delay
+
 
                     } else if (currentNumber === targetNumber) {
                         wins++;
