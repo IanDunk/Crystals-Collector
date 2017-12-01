@@ -57,20 +57,20 @@
                     </div>
                 </div>
 
-                <!-- Gem Buttons -->
+                <!-- Crystal Buttons -->
                 <div class="panel">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Pick a gem</h3>
+                        <h3 class="panel-title">Pick a crystal</h3>
                     </div>
                     <div class="panel-body text-center">
                         <button id="button-1" value="null">
-                            <img src="assets/images/green-gem.png" alt="green gem" </button>
+                            <img src="assets/images/green-crystal.png" alt="green crystal" </button>
                             <button id="button-2" value="null">
-                                <img src="assets/images/orange-gem.png" alt="orange gem" </button>
+                                <img src="assets/images/orange-crystal.png" alt="orange crystal" </button>
                                 <button id="button-3" value="null">
-                                    <img src="assets/images/purple-gem.png" alt="purple gem" </button>
+                                    <img src="assets/images/purple-crystal.png" alt="purple crystal" </button>
                                     <button id="button-4" value="null">
-                                        <img src="assets/images/red-gem.png" alt="red gem" </button>
+                                        <img src="assets/images/red-crystal.png" alt="red crystal" </button>
                     </div>
                 </div>
 
@@ -100,9 +100,9 @@
                     <div class="panel-body">
                         <article class="game-description">
                             <p>The goal of this game is to make your number equal the target number. The target number is a
-                                random number from 19 through 120. Each gem will have a random value from 1 through 12. Each
-                                gem you click on adds its value to your number. Good luck, and don't go above that target
-                                number! Click a gem to play again.</p>
+                                random number from 19 through 120. Each crystal will have a random value from 1 through 12. Each
+                                crystal you click on adds its value to your number. Good luck, and don't go above that target
+                                number! Click a crystal to play again.</p>
                         </article>
                     </div>
                 </div>
@@ -119,14 +119,14 @@
                     </div>
                 </div>
 
-                <!-- Loses (red) -->
+                <!-- Losses (red) -->
                 <div class="panel panel-danger">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Current Loses:</h3>
+                        <h3 class="panel-title">Current Losses:</h3>
                     </div>
                     <div class="panel-body">
                         <div class="text-center">
-                            <p id="current-loses">0</p>
+                            <p id="current-losses">0</p>
                         </div>
                     </div>
                 </div>
@@ -146,11 +146,11 @@
         // Number Values
         var currentNumber = 0;
         var targetNumber = 0;
-        var gemValues = [];
+        var crystalValues = [];
 
         // Scoreboard
         var wins = 0;
-        var loses = 0;
+        var losses = 0;
 
 
         // Reset
@@ -161,10 +161,10 @@
             // Setting random value to 'targetNumber' from 19 through 120
             targetNumber = Math.floor(Math.random() * 102) + 19
 
-            // Setting random values to gems from 1 through 12
+            // Setting random values to crystals from 1 through 12
             for (var i = 0; i < 4; i++) {
-                gemValues[i] = Math.floor(Math.random() * 12) + 1;
-                $("#button-" + (i + 1)).attr("value", gemValues[i]);
+                crystalValues[i] = Math.floor(Math.random() * 12) + 1;
+                $("#button-" + (i + 1)).attr("value", crystalValues[i]);
             }
 
             // Updating target-number html tag
@@ -179,7 +179,7 @@
         // JavaScript function that wraps everything
         $(document).ready(function () {
 
-            // Play game when any gem clicked
+            // Play game when any crystal clicked
             $("button").on("click", function () {
 
                 // If game hasn't been finished yet
@@ -187,7 +187,7 @@
                     currentNumber += parseInt(this.value);
 
                     if (currentNumber > targetNumber) {
-                        loses++;
+                        losses++;
 
                         // Hope I got you next 8 lines down ;)
                         $("body").hide();
@@ -204,7 +204,7 @@
                         // Play airhorn
                         document.getElementById("win").play();
                     }
-                    // If game has finished, reset on next gem click
+                    // If game has finished, reset on next crystal click
                 } else {
                     resetGame();
                 }
@@ -212,7 +212,7 @@
                 // Updating html tags to screen
                 $("#current-number").text(currentNumber);
                 $("#current-wins").text(wins);
-                $("#current-loses").text(loses);
+                $("#current-losses").text(losses);
             });
         });
         
